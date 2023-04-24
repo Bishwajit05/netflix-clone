@@ -3,13 +3,13 @@ const nextConfig = {
   reactStrictMode: true,
 };
 
-module.exports = nextConfig;
 module.exports = {
+  nextConfig,
   async headers() {
     return [
       {
         // matching all API routes
-        source: "/api/:path*",
+        source: "/api/(.*)",
         headers: [
           { key: "Access-Control-Allow-Credentials", value: "true" },
           { key: "Access-Control-Allow-Origin", value: "*" },
